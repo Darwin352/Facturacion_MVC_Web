@@ -1,0 +1,23 @@
+﻿@model PRACTICA_AEAE_3_MVC.Models.TBLFACTURA
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutFacturacion.cshtml";
+}
+
+<h2 class="well">Editar</h2>
+
+@using (Html.BeginForm("Editar", "TBLfactura", FormMethod.Post))
+{
+    @Html.HiddenFor(d => d.IdFactura)
+    <p>@Html.LabelFor(d => d.DtmFecha): @Html.EditorFor(d => d.DtmFecha)</p>
+    <p>Cliente :@Html.DropDownList("IdCliente")</p>
+    <p>Empleado :@Html.DropDownList("IdEmpleado")</p>
+    <p>@Html.LabelFor(d => d.NumDescuento) @Html.TextBoxFor(d => d.NumDescuento)</p>
+    <p>@Html.LabelFor(d => d.NumImpuesto) @Html.TextBoxFor(d => d.NumImpuesto)</p>
+    <p>@Html.LabelFor(d => d.NumValorTotal) @Html.TextBoxFor(d => d.NumValorTotal)</p>
+    <p>Estado :@Html.DropDownList("IdEstado")</p>
+
+    <input value="Guardar" type="submit" class="btn btn-success" />
+    <a class="btn btn-primary" href="~/TBLfactura">Retornar</a>
+}
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PRACTICA_AEAE_3_MVC.Models.TBLEMPLEADO>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFacturacion.cshtml";
+}
+
+<h2>Administrar Empleados</h2>
+<div class="well"><a href="~/TBLempleado/Nuevo" class="btn btn-primary">Nuevo</a></div>
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Documento</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.strNombre</th>
+            <th>@item.NumDocumento</th>
+            <th>@item.StrTelefono</th>
+            <th>@item.StrEmail</th>
+            <th><a href="~/TBLEmpleado/Editar/@item.IdEmpleado" class="btn btn-info">Editar</a>   <a href="~/TBLEmpleado/Borrar/@item.IdEmpleado" class="btn btn-danger">Borrar</a></th>
+        </tr>
+    }
+
+</table>
+

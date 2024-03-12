@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PRACTICA_AEAE_3_MVC.Models.TBLPRODUCTO>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFacturacion.cshtml";
+}
+
+<h2>Administrar Productos</h2>
+<div class="well"><a href="~/TBLproducto/Nuevo" class="btn btn-primary">Nuevo</a></div>
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Codigo</th>
+        <th>Precio Compra</th>
+        <th>Precio venta</th>
+        <th>Categoria</th>
+        <th>Detalles</th>
+        <th>Foto</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.StrNombre</th>
+            <th>@item.StrCodigo</th>
+            <th>@item.NumPrecioCompra</th>
+            <th>@item.NumPrecioVenta</th>
+            <th>@item.IdCategoria</th>
+            <th>@item.StrDetalle</th>
+            <th>@item.strFoto</th>
+            <th>@item.NumStock</th>
+            <th><a href="~/TBLproducto/Editar/@item.IdProducto" class="btn btn-info">Editar</a>   <a href="~/TBLproducto/Borrar/@item.IdProducto" class="btn btn-danger">Borrar</a></th>
+        </tr>
+    }
+
+</table>
+

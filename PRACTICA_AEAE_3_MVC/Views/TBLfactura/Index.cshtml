@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PRACTICA_AEAE_3_MVC.Models.TBLFACTURA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFacturacion.cshtml";
+}
+
+<h2>Administrar Facturas</h2>
+<div class="well"><a href="~/TBLfactura/Nuevo" class="btn btn-primary">Nuevo</a></div>
+<table class="table">
+    <tr>
+        <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Empleado</th>
+        <th>Descuento</th>
+        <th>Impuesto</th>
+        <th>ValorTotal</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.DtmFecha</th>
+            <th>@item.IdCliente</th>
+            <th>@item.IdEmpleado</th>
+            <th>@item.NumDescuento</th>
+            <th>@item.NumImpuesto</th>
+            <th>@item.NumValorTotal</th>
+            <th>@item.IdEstado</th>
+            <th><a href="~/TBLfactura/Editar/@item.IdFactura" class="btn btn-info">Editar</a>   <a href="~/TBLfactura/Borrar/@item.IdFactura" class="btn btn-danger">Borrar</a></th>
+        </tr>
+    }
+
+</table>
+
